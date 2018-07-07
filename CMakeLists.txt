@@ -24,11 +24,11 @@ set(IMGUI_DEFINITIONS
 
 set(LIBRARIES
    ${OpticksGLEW_LIBRARY} 
-   ${OpticksGLFW_LIBRARIES}
+   ${OpticksGLFW_LIBRARY}
 )
 
 if(APPLE)
-    message("APPLE")
+    message(STATUS "APPLE")
     find_library( Cocoa_LIBRARY NAMES Cocoa )
     find_library( OpenGL_LIBRARY NAMES OpenGL )
     find_library( IOKit_LIBRARY NAMES IOKit )
@@ -45,12 +45,11 @@ if(APPLE)
 endif(APPLE)
 
 if(UNIX AND NOT APPLE)
-    #message(STATUS "UNIX AND NOT APPLE")
+    message(STATUS "UNIX AND NOT APPLE")
     find_library( OpenGL_LIBRARY NAMES GL )
 
     set( LIBRARIES 
                ${LIBRARIES} 
-               ${OpticksGLFW_LIBRARIES} 
                ${OpenGL_LIBRARY}
                )
 endif(UNIX AND NOT APPLE)
@@ -94,7 +93,7 @@ set(INCLUDE_DIRS
 
    ${ImGui_SOURCE_DIR}/examples/opengl3_example
    ${OpticksGLEW_INCLUDE_DIR} 
-   ${OpticksGLFW_INCLUDE_DIRS} 
+   ${OpticksGLFW_INCLUDE_DIR} 
 )
 
 set(DEFINITIONS
